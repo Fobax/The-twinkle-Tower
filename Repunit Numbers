@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Collections;
+
+class Solution {
+	
+	// We use this later to determine the greatest common divisor of two numbers
+	static int GCD(int a, int b){
+	    return b == 0 ? a : GCD(b, a % b);
+	}
+	
+    static void Main(String[] args) {
+    	//Reads the first line of STDN. This line tells us how many more lines we are going to read after the first
+    	String line = Console.ReadLine();
+    	int numtries = Convert.ToInt32(line);
+    	
+    	int a = 1;
+    	int i = 2;
+    	
+    
+    	//This while loop reads each succesive line until the conditions are met
+		while ((line = Console.ReadLine()) != null && line != "" && a-1 != numtries) {
+			int num = int.Parse(line);
+			double repun = 11;
+			a++;
+			if ( GCD(num , 10) != 1){
+				Console.WriteLine(num + " is not a valid entry");
+				break;
+			}
+			
+			//Console.WriteLine(repun);
+			while (repun % num != 0) {
+				//Console.WriteLine(repun);
+				double exp = Math.Pow(10,i);
+				repun = repun + exp;
+				i++;
+				Console.WriteLine(repun);
+				//Console.WriteLine(num);
+			
+		
+			}
+	
+		}
+
+		
+    }
+}
